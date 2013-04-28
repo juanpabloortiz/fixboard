@@ -1,0 +1,24 @@
+<body>
+<h1>List of Users</h1>
+<!-- <p>
+<%= link_to "Add a New User", new_picture_url %>
+</p> -->
+<table>
+  <tr>
+    <th scope="col">Name</th>
+    <th scope="col">Email</th>
+    <th scope="col">Password</th>
+  </tr>
+
+  <% @landlords.each do |print| %>
+    <tr>
+      <% @fullname = "#{print.first_name} #{print.last_name}" %>
+      <td><%= link_to fullname, "/landlords/#{print.id}" %></a></td>
+      <td><%= print.email %></td>
+      <td><%= print.pasword %></td>
+      <td><%= link_to "Edit", "/landlords/#{print.id}/edit" %></td>
+      <td><%= link_to "Delete", "/landlords/#{print.id}", :method => :delete, :confirm => "Really? #{fullname}?" %>
+    </tr>
+  <% end %>
+</table>
+</body>
